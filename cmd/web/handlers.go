@@ -249,3 +249,11 @@ func (app *application) userLogoutPost(w http.ResponseWriter, r *http.Request) {
 	// Redirect the user to the application home page.
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
+
+func (app *application) aboutGet(w http.ResponseWriter, r *http.Request) {
+	app.render(w, http.StatusOK, "about.tmpl", app.newTemplateData(r))
+}
+
+func ping(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("OK"))
+}
